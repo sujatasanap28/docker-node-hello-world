@@ -22,7 +22,7 @@ jobs:
         run: |
           echo ${{ secrets.AWS_ACCESS_KEY_ID }} >> ~/.aws/credentials
           echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} >> ~/.aws/credentials
-          echo ${{ secrets.AWS_DEFAULT_REGION }} >> ~/.aws/config
+          echo ${{ secrets.AWS_DEFAULT_REGION }} >> 
           export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
           export IMAGE_NAME=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}
           docker buildx build --push --platform linux/amd64,linux/arm64 -t $IMAGE_NAME .
