@@ -30,7 +30,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.EC2_PASSWORD}]
+          password: ${{ secrets.PASSWORD}}
           
           
           port: 22
