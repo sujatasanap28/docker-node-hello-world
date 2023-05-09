@@ -4,7 +4,6 @@ jobs:
   build:
     name: Build Image
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -32,6 +31,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
+          command_timeout: 200
           script: |
             export IMAGE_NAME=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}
             docker stop my-container || true
